@@ -13,3 +13,9 @@ EditorBuildSettings:
     path: Assets/CloudGame/cloudgameScene.unity
   - enabled: 1
     path: Assets/MainWorld/Middle.unity
+  - enabled: 1
+    path: Assets/MainWorld/mall.unity
+  - enabled: 1
+    path: Assets/MainWorld/park.unity
+  - enabled: 1
+    path: Assets/MainWorld/school.unity
