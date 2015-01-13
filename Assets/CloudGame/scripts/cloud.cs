@@ -3,20 +3,18 @@ using System.Collections;
 
 public class cloud : MonoBehaviour {
 	public bool good;
-	public Vector3 force;
-	public GameObject player;
+	public float force;
 
-	public PhysicMaterial bouncy;
-	public PhysicMaterial notBouncy;
+	public GameObject player;
+	public Camera cam;
 	// Use this for initialization
 	void Start () {
 		good = true;
-		force = new Vector3 (0,1,0);
-
+		//the force the cloud applies to the player when hit
 		if (good)
-						GetComponent<BoxCollider> ().material = bouncy;
+						force = 5;
 				else
-						GetComponent<BoxCollider> ().material = notBouncy;
+						force = 1;
 	}
 	
 	// Update is called once per frame
@@ -24,5 +22,10 @@ public class cloud : MonoBehaviour {
 		if (player.transform.position.y > transform.position.y)
 						GetComponent<BoxCollider> ().enabled = true;
 
+
+					//if the cloud is below the screen destroy it
+			Vector3 screenPos = cam.WorldToScreenPoint (transform.position);
+		if (screenPos.y < -20)
+						Destroy (gameObject);
 	}
 }

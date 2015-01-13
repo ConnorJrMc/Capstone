@@ -1,0 +1,14 @@
+
+cloud game
+
+spawn 1  good cloud at roughly max jump distance
+
+spawn x number of clouds in distance in between new cloud and current highest cloud you have reached
+
+x is greater the lower your score is, and gets lower the higher you get
+
+clouds have a higher chance to be bad, the less clouds there are
+
+clouds are destoryed once they are too low in comparison to the player
+
+camera adjusts to have the highest cloud reached be at the bottom of the screen
