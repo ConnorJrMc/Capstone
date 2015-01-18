@@ -4,8 +4,13 @@ using System.Collections.Generic;
 
 public class cloudGame : MonoBehaviour {
 
-	public float cloudRange;
+	//distance between clouds
 	public float cloudMinimum;
+
+	//number of clouds at once
+	public int numClouds;
+	//will update so that a good cloud is always within jumping distance
+	public float distanceFromGoodCloud;
 
 
 	public GameObject Player;
@@ -13,38 +18,46 @@ public class cloudGame : MonoBehaviour {
 	public List<GameObject> clouds = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
+		numClouds = 15;
 		Player = GameObject.FindGameObjectWithTag ("Player");
 		cloudMinimum = 3;
-		//area that clouds can spawn in start equal to the minimum distance apart
-		cloudRange = cloudMinimum;
 
 		makeFirstCloud (true);
+		for (int x = 1; x<15; x++)
+						makeCloud (true, clouds [x - 1].transform.position, x);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
-		//cloud range is  porportional to player height, higher the player is the greater the distance between teh next cloud is
-		cloudRange = Player.GetComponent<player> ().height + cloudMinimum;
-		//cap the range so that it is still possible to play
-		if (cloudRange > 5)
-						cloudRange = 5;
 		//spawn a good cloud at this distance away from the last added cloud
+		for (int x = 0; x<clouds.Count; x++) {
+			//update the cloud id's 
+			clouds[x].GetComponent<cloud>().cloudID = x;
+			if(clouds[x].transform.position.y > Player.transform.position.y)
+				clouds[x].GetComponent<BoxCollider>().enabled = true;
+				}
 
+		//if there is less than the number of clouds desired at once
+		if (clouds.Count < numClouds) {
+			//make more clouds
+			makeCloud(true,clouds[clouds.Count - 1].transform.position,clouds.Count);
+				}
 		//clouds will only spawn a minimum distance away from other clouds
-		makeCloud (true, clouds [clouds.Count - 1].transform.position);
 
 	}
 	//function to create clouds
-	public void makeCloud(bool type, Vector3 lastCloud)
+	public void makeCloud(bool type, Vector3 lastCloud, int id)
 	{
 		GameObject NewCloud = Cloud;
 		NewCloud.GetComponent<cloud> ().good = type;
 
 		//make the cloud the new distance away 
-		Vector3 newPostion = lastCloud.normalized * cloudRange;
+		Vector3 newPosition = lastCloud;
+		newPosition.y = newPosition.y + cloudMinimum;
 
-		NewCloud.transform.position = newPostion;
+		NewCloud.GetComponent<cloud> ().cloudID = id;
+		NewCloud.transform.position = newPosition;
 		clouds.Add (NewCloud);
 		Instantiate (NewCloud);
 	}
@@ -52,7 +65,8 @@ public class cloudGame : MonoBehaviour {
 	{
 		GameObject NewCloud = Cloud;
 		NewCloud.GetComponent<cloud> ().good = type;
-		//NewCloud.transform.position.Set (0, -3.5, 0);
+		NewCloud.transform.position = new Vector3 (0.0f, -3.5f, 0.0f);
+		NewCloud.GetComponent<cloud> ().cloudID = 0;
 		clouds.Add (NewCloud);
 		Instantiate (NewCloud);
 	}
