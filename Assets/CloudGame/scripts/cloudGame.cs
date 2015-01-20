@@ -7,6 +7,10 @@ public class cloudGame : MonoBehaviour {
 	//distance between clouds
 	public float cloudMinimum;
 
+	//angle to spawn clouds in
+	float thetaMin = 20;
+	float thetaMax = 60;
+
 	//number of clouds at once
 	public int numClouds;
 	//will update so that a good cloud is always within jumping distance
@@ -50,14 +54,22 @@ public class cloudGame : MonoBehaviour {
 	public void makeCloud(bool type, Vector3 lastCloud, int id)
 	{
 		GameObject NewCloud = Cloud;
+		//each good cloud increases the chance for the next one to be bad
+		//each bad cloud increases the chance for the next one to be good
+		//this value is decreased relative to height, the higher you are the more bad clouds
 		NewCloud.GetComponent<cloud> ().good = type;
 
 		//make the cloud the new distance away 
 		Vector3 newPosition = lastCloud;
-		newPosition.y = newPosition.y + cloudMinimum;
+
+		//find new position between theta, at cloud minimum distance away for the new cloud
+		float temp = Random.Range (thetaMin, thetaMax);
+
+		//adjust cloud position along x axis to keep it on the screen
 
 		NewCloud.GetComponent<cloud> ().cloudID = id;
 		NewCloud.transform.position = newPosition;
+		NewCloud.GetComponent<cloud> ().player = Player;
 		clouds.Add (NewCloud);
 		Instantiate (NewCloud);
 	}

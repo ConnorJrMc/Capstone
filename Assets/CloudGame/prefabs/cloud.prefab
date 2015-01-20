@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195602}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 44.5, z: 0}
+  m_LocalPosition: {x: 0, y: -3.5, z: 0}
   m_LocalScale: {x: .261428714, y: .261428744, z: .573221564}
   m_Children: []
   m_Father: {fileID: 495604}
@@ -128,7 +128,7 @@ MonoBehaviour:
   good: 1
   force: 0
   cloudID: 14
-  player: {fileID: 195642, guid: 874174f2696c68845a660058c824214b, type: 2}
+  player: {fileID: 0}
   cam: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

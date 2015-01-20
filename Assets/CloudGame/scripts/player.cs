@@ -7,15 +7,20 @@ public class player : MonoBehaviour {
 	public float height;
 	public GameObject score;
 	public Camera cam;
+	public float speed;
+
+	protected CharacterController control;
 	// Use this for initialization
 	void Start () {
+
+		control = GetComponent<CharacterController> ();
 		height = 0;
+		speed = 4;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		//adjust camera to follow the player
+				//adjust camera to follow the player
 		Vector3 screenPos = cam.WorldToScreenPoint (transform.position);
 		if (screenPos.y > 300) {
 						cam.transform.position =  new Vector3(cam.transform.position.x,
@@ -23,7 +28,11 @@ public class player : MonoBehaviour {
 			                                 			cam.transform.position.z);
 				}
 		//move left and right with gyroscope
+		Vector3 Dir = Vector3.zero;
+		Dir.x = Input.acceleration.x;
+		Dir.y = 1;
 
+		rigidbody.velocity.Scale (Dir);
 
 
 		//update the score to display the highest hight acheived
@@ -44,6 +53,8 @@ public class player : MonoBehaviour {
 			rigidbody.AddForce (transform.up * (temp * 100) , ForceMode.Acceleration);
 		}
 	}
+
+
 
 
 }

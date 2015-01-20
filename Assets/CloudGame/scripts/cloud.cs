@@ -21,14 +21,19 @@ public class cloud : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		//if player is above the cloud, turn on the collider
 		if (player.transform.position.y > transform.position.y) {;
 						GetComponent<BoxCollider> ().enabled = true;
 		}
 
-		if(player.transform.position.y < transform.position.y)
+		//if player is below the cloud, turn off the collider
+		if (player.transform.position.y < transform.position.y)
 			GetComponent<BoxCollider>().enabled  = false;
 					//if the cloud is below the screen destroy it
-			Vector3 screenPos = cam.WorldToScreenPoint (transform.position);
+
+
+		//if cloud is below the screen, destroy the cloud
+		Vector3 screenPos = cam.WorldToScreenPoint (transform.position);
 		if (screenPos.y < -20) {
 						Destroy (gameObject);
 						cam.GetComponent<cloudGame> ().clouds.RemoveAt (cloudID);

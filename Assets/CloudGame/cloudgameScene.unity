@@ -529,6 +529,7 @@ MonoBehaviour:
   height: 0
   score: {fileID: 235145267}
   cam: {fileID: 968547904}
+  speed: 0
 --- !u!54 &672266383
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -19,9 +19,7 @@ Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\Ass
 Loading C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.044 seconds
+- Completed reload, in  0.061 seconds
 desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\System.dll (this message is harmless)
