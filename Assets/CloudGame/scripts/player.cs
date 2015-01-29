@@ -24,8 +24,15 @@ public class player : MonoBehaviour {
 		Vector3 screenPos = cam.WorldToScreenPoint (transform.position);
 		if (screenPos.y > 300) {
 						cam.transform.position =  new Vector3(cam.transform.position.x,
-														transform.position.y,
+													transform.position.y,
 			                                 			cam.transform.position.z);
+				}
+		if (screenPos.y < -40) {
+			//player has died
+			//show score
+			//show losing screen
+			//load game menu
+				Application.LoadLevel ("cloudMenu");
 				}
 		//move left and right with gyroscope
 		Vector3 Dir = Vector3.zero;
@@ -39,7 +46,9 @@ public class player : MonoBehaviour {
 		if (transform.position.y > height)
 						height = transform.position.y;
 
-		score.GetComponent<Text> ().text = height.ToString ();
+		float temp = height * 10;
+		int temp1 = (int)temp;
+		score.GetComponent<Text> ().text = "Score:"+temp1.ToString ();
 	}
 
 	void OnCollisionEnter(Collision col)

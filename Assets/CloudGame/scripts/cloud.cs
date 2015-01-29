@@ -7,15 +7,23 @@ public class cloud : MonoBehaviour {
 	public int cloudID;
 	public GameObject player;
 	public Camera cam;
+
+	public Texture goodTexture;
+	public Texture badTexture;
+
 	// Use this for initialization
 	void Start () {
-		good = true;
 		cam = GameObject.Find ("Main Camera").camera;
 		//the force the cloud applies to the player when hit
-		if (good)
-						force = 5;
-				else
+		if (good) {
+						force = 5f;
+					renderer.material.mainTexture = goodTexture;
+			//GetComponentInChildren<TextMesh>().text = ;
+				} else {
 						force = 1;
+					renderer.material.mainTexture = badTexture;
+		//	GetComponentInChildren<TextMesh>().text = ;
+				}
 	}
 	
 	// Update is called once per frame

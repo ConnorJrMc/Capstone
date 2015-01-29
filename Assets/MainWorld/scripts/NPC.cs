@@ -15,7 +15,7 @@ public class NPC : character {
 		{
 		base.Start ();
 		BoxCollider col = GetComponent<BoxCollider> ();
-		col.size = new Vector3 (range,transform.localScale.y, range);
+		col.size = new Vector3 (col.size.x*range,col.size.y,(col.size.z*range)*2);
 		interact = false;
 		target = transform.position;
 	}
@@ -44,7 +44,6 @@ public class NPC : character {
 
 	void OnTriggerEnter(Collider collision)
 	{
-		Debug.Log ("hi");
 		if (collision.tag == "Player") {
 						interact = true;
 						target = collision.transform.position;
@@ -55,19 +54,15 @@ public class NPC : character {
 
 	void OnTriggerExit(Collider collision)
 	{
-		Debug.Log ("bye");
 		interact = false;
 	}
 
 	public void facePlayer()
 	{
-		float tempX = transform.position.x - target.x;
-		float tempZ = transform.position.z - target.z;
+		Vector3 temp = target;
+		temp.y = transform.position.y;
 
-		float radians = Mathf.Atan2 (tempX, tempZ);
-		float angle = radians * 180 / Mathf.PI - 90;
-
-		transform.eulerAngles = new Vector3 (transform.rotation.x,angle, transform.rotation.z);
+		transform.LookAt (temp);
 
 	}
 
