@@ -1,0 +1,53 @@
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.1270]
+    Renderer: NVIDIA NVS 5400M  
+    Vendor:   NVIDIA
+    VRAM:     977 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.043 seconds
+desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\100426175\Desktop\Capstone\capstone_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 2.632647 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 267.
+Total: 4.099200 ms (FindLiveObjects: 0.011678 ms CreateObjectMapping: 0.006724 ms MarkObjects: 0.153591 ms  DeleteObjects: 3.497927 ms)
+
+UnloadTime: 0.772913 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 269.
+Total: 0.521291 ms (FindLiveObjects: 0.009201 ms CreateObjectMapping: 0.007431 ms MarkObjects: 0.149698 ms  DeleteObjects: 0.014509 ms)
+
+pSphere4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+pSphere4
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 0.915888 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 204.
+Total: 0.582162 ms (FindLiveObjects: 0.006370 ms CreateObjectMapping: 0.006724 ms MarkObjects: 0.115370 ms  DeleteObjects: 0.070071 ms)
+

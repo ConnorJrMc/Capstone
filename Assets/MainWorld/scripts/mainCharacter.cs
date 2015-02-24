@@ -9,11 +9,13 @@ public class mainCharacter: character {
 	protected bool left;
 	protected bool right;
 
+	public Camera cam;
 
 
 	// Use this for initialization
 	public override void Start () {
 		base.Start();
+		cam = Camera.main;
 	}
 	
 	// Update is called once per frame
@@ -22,8 +24,9 @@ public class mainCharacter: character {
 		moveFunction (up, down, left, right);
 		move.Normalize ();
 		base.Update ();
-
 		move.Set (0, 0, 0);
+		cam.transform.position.Set (1, 1, 1);
+
 	}
 
 	private void moveFunction(bool u,bool d, bool l, bool r)
