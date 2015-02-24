@@ -9,7 +9,8 @@ public class JumpPlayer : MonoBehaviour {
 	void Start () {
 
 		isJumping = false;
-		jump = 7;
+		jump = 4;
+		constantForce.force = new Vector3(0,-14.0f,0);
 	}
 	
 	// Update is called once per frame
@@ -24,14 +25,18 @@ public class JumpPlayer : MonoBehaviour {
 
 	}
 
-	void OnCollisionTrigger(Collision col)
+	void OnTriggerEnter(Collider col)
 	{
 				//if player gets hit by the rope, end the game
-
 				//if player hits the landing collider
-				if (col.gameObject.name == "landing") {
-						Debug.Log ("landing");
+				if (col.name == "landing") {
 						isJumping = false;
+				}
+
+				if (col.name == "rope") {
+						//you hit the rope and lose
+					Debug.Log ("you lost");
+					//Application.LoadLevel ("jumpRopeMenu");
 				}
 		}
 	

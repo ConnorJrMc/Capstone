@@ -20,8 +20,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MainWorld/school.unity
   - enabled: 1
+    path: Assets/Jump rope game/JumpRope Game.unity
+  - enabled: 1
     path: Assets/CloudGame/cloudgameScene.unity
   - enabled: 1
     path: Assets/CloudGame/cloudMenu.unity
   - enabled: 1
     path: Assets/CloudGame/cloudGame how.unity
+  - enabled: 1
+    path: Assets/Balloon Game/balloonGameScene.unity
+  - enabled: 1
+    path: Assets/Catching stuff game/catchingGame.unity

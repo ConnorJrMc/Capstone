@@ -20,8 +20,13 @@ public class cloudGame : MonoBehaviour {
 	public GameObject Player;
 	public GameObject Cloud;
 	public List<GameObject> clouds = new List<GameObject>();
+
+
+	public bool lastCloud;
 	// Use this for initialization
 	void Start () {
+
+		lastCloud = true;
 		numClouds = 15;
 		Player = GameObject.FindGameObjectWithTag ("Player");
 		cloudMinimum = 3;
@@ -43,7 +48,19 @@ public class cloudGame : MonoBehaviour {
 		//if there is less than the number of clouds desired at once
 		if (clouds.Count < numClouds) {
 			//make more clouds
-			makeCloud(true,clouds[clouds.Count - 1].transform.position,clouds.Count);
+			int temp = Random.Range (-1,1);
+			//if the last cloud made was bad, then the next cloud is always good
+			if(lastCloud == false)
+				temp = 0;
+			//otherwise it is random
+			if(temp ==0){
+				lastCloud = true;
+				makeCloud(true,clouds[clouds.Count - 1].transform.position,clouds.Count);
+			}
+			else
+				lastCloud = false;
+				makeCloud(true,clouds[clouds.Count - 1].transform.position,clouds.Count);
+
 				}
 
 		if (Input.GetMouseButtonDown (0)) {
@@ -54,6 +71,7 @@ public class cloudGame : MonoBehaviour {
 	public void makeCloud(bool type, Vector3 lastCloud, int id)
 	{
 		GameObject NewCloud = Cloud;
+		Instantiate (NewCloud);
 		//each good cloud increases the chance for the next one to be bad
 		//each bad cloud increases the chance for the next one to be good
 		//this value is decreased relative to height, the higher you are the more bad clouds
@@ -68,21 +86,22 @@ public class cloudGame : MonoBehaviour {
 		Vector3 holder = Camera.main.ScreenToWorldPoint(new Vector3(temp,0,0));
 		newPosition.x = holder.x;
 	
+
+
 		NewCloud.GetComponent<cloud> ().cloudID = id;
 		NewCloud.transform.position = newPosition;
 		NewCloud.GetComponent<cloud> ().player = Player;
 		clouds.Add (NewCloud);
-		Instantiate (NewCloud);
 	}
 	public void makeFirstCloud(bool type)
 	{
 		GameObject NewCloud = Cloud;
+		Instantiate (NewCloud);
 		NewCloud.GetComponent<cloud> ().good = type;
-		NewCloud.transform.position = new Vector3 (0, 0, 0);
+		NewCloud.transform.position = new Vector3 (0, -5, 0);
 		NewCloud.GetComponent<cloud> ().cloudID = 0;
 		NewCloud.GetComponent<cloud> ().player = Player;
 		clouds.Add (NewCloud);
-		Instantiate (NewCloud);
 	}
 
 	public void OnMouseDown()
